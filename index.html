@@ -44,7 +44,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ─────────────────────────────────────────────
    LAYOUT
 ───────────────────────────────────────────── */
-.wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(24px,4vw,64px)}
 section{border-bottom:1px solid var(--border)}
 
 /* ─────────────────────────────────────────────
@@ -62,7 +62,7 @@ nav.solid{
   border-color:var(--border);
 }
 .nav-inner{
-  max-width:1080px;margin:0 auto;padding:0 40px;
+  max-width:1280px;margin:0 auto;padding:0 clamp(24px,4vw,64px);
   height:60px;display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
@@ -102,7 +102,8 @@ nav.solid{
 .hero-inner{
   display:grid;
   grid-template-columns:1fr auto;
-  gap:80px;align-items:center;
+  gap:clamp(48px, 7vw, 110px);
+  align-items:center;
 }
 .hero-kicker{
   font-size:.72rem;font-weight:700;letter-spacing:3px;
@@ -123,8 +124,8 @@ nav.solid{
   color:var(--yellow);
 }
 .hero-tagline{
-  font-size:1rem;color:var(--t2);
-  max-width:440px;line-height:1.75;margin-bottom:40px;
+  font-size:clamp(1rem, 1.3vw, 1.1rem);color:var(--t2);
+  max-width:52ch;line-height:1.75;margin-bottom:40px;
 }
 .hero-tagline strong{color:var(--t1);font-weight:600}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -147,7 +148,9 @@ nav.solid{
   flex-shrink:0;
 }
 .hero-photo-ring{
-  position:relative;width:220px;height:220px;
+  position:relative;
+  width:clamp(220px, 24vw, 320px);
+  height:clamp(220px, 24vw, 320px);
 }
 .hero-photo-ring::before{
   content:'';position:absolute;inset:-3px;border-radius:50%;
@@ -508,7 +511,7 @@ footer{
   padding:28px 0;border-top:1px solid var(--border);
 }
 .footer-inner{
-  max-width:1080px;margin:0 auto;padding:0 40px;
+  max-width:1280px;margin:0 auto;padding:0 clamp(24px,4vw,64px);
   display:flex;align-items:center;justify-content:space-between;
 }
 .footer-copy{font-size:.75rem;color:var(--t3)}
@@ -531,8 +534,10 @@ footer{
    RESPONSIVE
 ───────────────────────────────────────────── */
 @media(max-width:860px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-photo-wrap{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:44px}
+  #hero{padding-top:90px}
+  .hero-photo-wrap{order:-1}
+  .hero-photo-ring{width:min(58vw, 240px);height:min(58vw, 240px)}
   .metrics{grid-template-columns:1fr 1fr}
   .about-grid,.exp-grid,.contact-layout{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr 1fr}
